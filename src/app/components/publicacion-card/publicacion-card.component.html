@@ -1,0 +1,21 @@
+<ion-card>
+  <img *ngIf="publicacion.fotoBase64" [src]="publicacion.fotoBase64" alt="Foto de publicación" />
+  
+  <ion-card-header>
+    <ion-item lines="none" class="ion-no-padding">
+      <ion-label>
+        <ion-card-title>{{ publicacion.titulo }}</ion-card-title>
+        <ion-card-subtitle>{{ publicacion.fecha | date:'medium' }}</ion-card-subtitle>
+      </ion-label>
+      <ion-button fill="clear" color="danger" slot="end"
+        (click)="onEliminar()"
+        (keyup.enter)="onEliminar()">
+        Eliminar
+      </ion-button>
+    </ion-item>
+  </ion-card-header>
+
+  <ion-card-content>
+    {{ publicacion.descripcion }}
+  </ion-card-content>
+</ion-card>

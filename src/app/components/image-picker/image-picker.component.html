@@ -1,0 +1,9 @@
+<div class="ion-text-center">
+  <ion-button fill="outline" (click)="tomarFoto()" (keyup.enter)="tomarFoto()" type="button">
+    Tomar Fotografía
+  </ion-button>
+</div>
+
+<div class="ion-margin-top" *ngIf="fotoPreview">
+  <ion-img [src]="fotoPreview"></ion-img>
+</div>

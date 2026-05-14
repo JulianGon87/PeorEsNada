@@ -1,0 +1,28 @@
+<form [formGroup]="publicacionForm" (ngSubmit)="submitForm()">
+  <ion-item>
+    <ion-label position="stacked">Título</ion-label>
+    <ion-input type="text" formControlName="titulo" placeholder="Ej. Mascota perdida"></ion-input>
+  </ion-item>
+  <ion-note color="danger" *ngIf="publicacionForm.get('titulo')?.invalid && publicacionForm.get('titulo')?.touched">
+    El título es obligatorio y debe tener mínimo 5 caracteres.
+  </ion-note>
+
+  <ion-item>
+    <ion-label position="stacked">Descripción</ion-label>
+    <ion-textarea formControlName="descripcion" placeholder="Agrega más detalles aquí..." rows="4"></ion-textarea>
+  </ion-item>
+  <ion-note color="danger" *ngIf="publicacionForm.get('descripcion')?.invalid && publicacionForm.get('descripcion')?.touched">
+    La descripción es obligatoria y debe tener mínimo 20 caracteres.
+  </ion-note>
+
+  <app-image-picker 
+    [fotoPreview]="fotoBase64" 
+    (fotoTomada)="actualizarFoto($event)">
+  </app-image-picker>
+
+  <div class="ion-margin-top">
+    <ion-button expand="block" type="submit" [disabled]="publicacionForm.invalid">
+      Guardar Publicación
+    </ion-button>
+  </div>
+</form>

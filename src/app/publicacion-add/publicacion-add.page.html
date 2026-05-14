@@ -1,0 +1,9 @@
+<app-page-header 
+  titulo="Nueva Publicación" 
+  [mostrarBotonAtras]="true" 
+  rutaAtras="/home">
+</app-page-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <app-publicacion-form (guardar)="manejarGuardado($event)"></app-publicacion-form>
+</ion-content>

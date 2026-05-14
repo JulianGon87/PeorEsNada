@@ -1,0 +1,13 @@
+<app-empty-state 
+  *ngIf="publicaciones.length === 0"
+  mensaje="No hay publicaciones disponibles en este momento."
+  icono="folder-open-outline">
+</app-empty-state>
+
+<ion-list *ngIf="publicaciones.length > 0">
+  <app-publicacion-card 
+    *ngFor="let p of publicaciones" 
+    [publicacion]="p" 
+    (eliminar)="eliminarItem($event)">
+  </app-publicacion-card>
+</ion-list>
